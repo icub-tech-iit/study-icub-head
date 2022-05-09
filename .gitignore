@@ -1,0 +1,9 @@
+*
+# Accepted files format
+!.gitattributes
+!.gitignore
+!*.1
+!*.md
+!*.stl
+!*.step
+!*/
