@@ -1,3 +1,3 @@
-Repo Name (❌FIXME) – Simulations
-==================================
+Study iCub Head – Simulations
+=============================
 
