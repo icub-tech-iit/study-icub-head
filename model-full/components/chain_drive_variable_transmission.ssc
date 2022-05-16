@@ -1,0 +1,115 @@
+component chain_drive_variable_transmission
+% Chain Drive Variable Transmission
+% Expand on the standard chain_drive to add variable transmission ratio
+
+% Copyright (C) 2021 Fondazione Istituto Italiano di Tecnologia (IIT)
+% All Rights Reserved
+% Authors: ugo.pattacini@iit.it
+
+nodes
+    A = foundation.mechanical.rotational.rotational;    % A:left
+    B = foundation.mechanical.rotational.rotational;    % B:right
+end
+
+inputs
+    r_a; % r_a:left
+    r_b; % r_b:right
+end
+
+parameters
+    chain_model =sdl.enum.chain_model.ideal;% Chain model
+end
+
+parameters(ExternalAccess=none)
+    slack    = { 0.050, 'm' };              % Chain slack length
+    k_chain  = { 1e5, 'N/m' };              % Chain stiffness
+    mu_visc_chain  = { 5, 'N/(m/s)' };      % Chain damping
+end
+
+parameters
+    mu_visc_a = { 0.001, '(N*m)/(rad/s)' }; % Viscous friction coefficient of sprocket A
+    mu_visc_b = { 0.001, '(N*m)/(rad/s)' }; % Viscous friction coefficient of sprocket B
+end
+
+parameters(ExternalAccess=none)
+    breakable = sdl.enum.max_tension.off;   % Maximum tension
+    F_max    = { 1e6, 'N' };                % Chain maximum tension
+end
+
+variables(ExternalAccess=none)
+    x   = { value = { 0, 'm'}, priority = priority.high }; % Chain stretch
+end
+
+variables(Access = protected)
+    tA  = { 0, 'N*m' };                     % Sprocket A torque
+    tB  = { 0, 'N*m' };                     % Sprocket B torque
+end
+
+branches
+    tA : A.t -> *;
+    tB : B.t -> *;
+end
+
+equations
+    assert(r_a>0)
+    assert(r_b>0)
+    assert(mu_visc_a>=0)
+    assert(mu_visc_b>=0)
+end
+
+if chain_model == 1
+    equations
+        A.w * r_a == B.w * r_b;
+        (tA - mu_visc_a * A.w) * r_b == -(tB - mu_visc_b * B.w) * r_a;
+        x == 0;
+    end
+else
+    annotations
+        [slack,...
+        k_chain,...
+        mu_visc_chain,...
+        breakable,...
+        x] : ExternalAccess = modify
+    end
+    if breakable
+        annotations
+            F_max : ExternalAccess = modify
+        end
+        equations
+            assert(F_max>0)
+            assert(F<F_max)
+            assert(F>-F_max)
+        end
+    end
+    variables
+        vel = { 0, 'm/s' };                     % Chain stretch velocity
+        F   = { 0, 'N' };                       % Chain tension
+    end
+    equations
+        assert(slack>=0)
+        assert(k_chain>0)
+        assert(mu_visc_chain>=0)
+
+        vel == A.w*r_a - B.w*r_b;
+        x.der == vel;
+        tA == -F * r_a + mu_visc_a * A.w;
+        tB == F * r_b + mu_visc_b * B.w;
+        if x > slack/2
+            F == -(x - slack/2) * k_chain - vel * mu_visc_chain;
+        elseif x >= -slack/2
+            F == - vel * mu_visc_chain;
+        else
+            F == -(x + slack/2) * k_chain - vel * mu_visc_chain;
+        end
+    end
+end
+
+annotations
+    UILayout = [UIGroup('physmod:simscape:library:gui:groups:Geometry', ...
+                chain_model, slack)
+                UIGroup('physmod:simscape:library:tabs:Dynamics', ...
+                        k_chain, mu_visc_chain, mu_visc_a, mu_visc_b)
+                UIGroup('physmod:sdl:library:tabs:MaximumTension', ...
+                        breakable, F_max)]
+end
+end

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="mfussi" on="03/16/22||10:08:43" using="Simscape Multibody Link Version 6.0" from="Pro/Engineer Creo 7.0 - 2021184"/>
+<ModelUnits mass="kg" length="mm"/>
+<RootAssembly name="ICUB27_HEAD" uid="ICUB27_HEAD_asm" version="297">
+<AssemblyFile name="ICUB27_HEAD.asm" type="ProEngineer Assembly"/>
+<InstanceTree>
+<Instance name="IC_002_A_001_STDHEAD_SW0002" uid="59" entityUid="IC_002_A_001_STDHEAD_SW0002_prt">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>92.93667533938509 57.734336898346818 -67.835797803171261</Translation>
+</Transform>
+</Instance>
+</InstanceTree>
+<Constraints>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+</Assemblies>
+<Parts>
+<Part name="IC_002_A_001_STDHEAD_SW0002" uid="IC_002_A_001_STDHEAD_SW0002_prt" version="104911">
+<PartFile name="IC_002_A_001_STDHEAD_SW0002.prt" type="ProEngineer Part"/>
+<MassProperties>
+<Mass>1.8605600175092207</Mass>
+<CenterOfMass>0.0074828768161488085 36.280139274461142 -44.069704588599848</CenterOfMass>
+<Inertia>7753.9166983163268 7533.1980804332243 5732.4208084720194 127.38312127405243 -105.96413393165177 30.00306193387091</Inertia>
+</MassProperties>
+<GeometryFile name="ic_002_a_001_stdhead_sw0002_prt.step" type="STEP"/>
+<Frames>
+<Frame name="SCYS_V1_HEAD_COG" uid="104610">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>2.1999999999999997 107.59999999999999 -9.3999999999999986</Translation>
+</Transform>
+</Frame>
+<Frame name="SCYS_HEAD_IMU" uid="104612">
+<Transform>
+<Rotation>-1 7.0725482516902353e-016 -4.1466648263853598e-015 4.1466648263853606e-015 7.0959213679980989e-016 -1 -7.0725482516902057e-016 -1 -7.0959213679981285e-016</Rotation>
+<Translation>5.4999999999999627 108.98199999999974 -17.549999999999905</Translation>
+</Transform>
+</Frame>
+<Frame name="SCYS_NECK_1" uid="104614">
+<Transform>
+<Rotation>0 -1 0 0 0 -1 1 0 0</Rotation>
+<Translation>0.0016878364870265528 49 -8.6500000000000057</Translation>
+</Transform>
+</Frame>
+<Frame name="SCYS_HEAD_MECH" uid="104616">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Frame>
+</Frames>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="0" Icon="" File="models/neck_head_control.slx" Name="neck_head_control">
+    <Extension Value="0e69b2aa-b478-4f73-967d-21dd9dcc9b1d" Name="StartUpPrev"/>
+</Info>
