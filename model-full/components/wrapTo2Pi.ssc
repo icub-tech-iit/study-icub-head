@@ -1,0 +1,21 @@
+component wrapTo2Pi
+% wrapTo2Pi
+% Wrap the input angle in the range [0, 2*pi]
+
+% Copyright (C) 2021 Fondazione Istituto Italiano di Tecnologia (IIT)
+% All Rights Reserved
+% Authors: ugo.pattacini@iit.it
+
+inputs
+    I;
+end
+
+outputs
+    O;
+end
+
+equations
+    O == mod(I, 2*pi);
+end
+
+end

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="silo-mech" on="09/21/21||15:59:00" using="Simscape Multibody Link Version 5.0" from="Pro/Engineer Creo 7.0 - 2020454"/>
+<ModelUnits mass="kg" length="mm"/>
+<RootAssembly name="NECK_TRUTH_ASSEMBLY" uid="NECK_TRUTH_ASSEMBLY_asm" version="2926">
+<AssemblyFile name="NECK_TRUTH_ASSEMBLY.asm" type="ProEngineer Assembly"/>
+<InstanceTree>
+<Instance name="NECK_TRUTH_SKEL" uid="61" entityUid="NECK_TRUTH_SKEL_prt">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="SIM_HEAD_NECK_2_PITCH" uid="64" entityUid="SIM_HEAD_NECK_2_PITCH_prt">
+<Transform>
+<Rotation>0 0 1 1 0 0 0 1 0</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="SIM_HEAD_NECK_3_ROLL" uid="65" entityUid="SIM_HEAD_NECK_3_ROLL_prt">
+<Transform>
+<Rotation>0 0 1 1 6.6613381477509383e-016 0 -6.6613381477509383e-016 1 0</Rotation>
+<Translation>-4.2085518800275594e-015 2.5950016541396709e-015 -2.1038422591447855e-015</Translation>
+</Transform>
+</Instance>
+<Instance name="SIM_HEAD_NECK_4_YAW" uid="66" entityUid="SIM_HEAD_NECK_4_YAW_prt">
+<Transform>
+<Rotation>0 0 1 1 6.6613381477509383e-016 0 -6.6613381477509383e-016 1 0</Rotation>
+<Translation>-1.8721135752741702e-014 2.5950016541396796e-015 0</Translation>
+</Transform>
+</Instance>
+<Instance name="SIM_HEAD_HEAD_2" uid="69" entityUid="SIM_HEAD_HEAD_2_prt">
+<Transform>
+<Rotation>0 0 1 1 6.3844711928802925e-016 0 -6.3844711928802905e-016 1 0</Rotation>
+<Translation>-4.3805237215366333e-014 5.3290705182007861e-015 1.4210854715202004e-014</Translation>
+</Transform>
+</Instance>
+</InstanceTree>
+<Constraints>
+<Coincident name="Coincident_64_0">
+<ConstraintGeometry geomType="line">
+<InstancePath>
+<Uid>61</Uid>
+</InstancePath>
+<Position>0 44.131100468876376 0</Position>
+<Axis>0 -88.262200937752752 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="line">
+<InstancePath>
+<Uid>64</Uid>
+</InstancePath>
+<Position>31 0 0</Position>
+<Axis>-62 0 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincident_64_1">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>61</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>64</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincident_65_0">
+<ConstraintGeometry geomType="line">
+<InstancePath>
+<Uid>64</Uid>
+</InstancePath>
+<Position>2.3886912952514935e-015 -9.5 -21.050000000000001</Position>
+<Axis>5.1249775907466501e-015 0 41.850000000000001</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="line">
+<InstancePath>
+<Uid>65</Uid>
+</InstancePath>
+<Position>7.5136688859981416e-015 -9.5 20.799999999999997</Position>
+<Axis>-7.3476381229342557e-016 0 -6</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincident_65_1">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>64</Uid>
+</InstancePath>
+<Position>6.7789050737047169e-015 -9.5 14.799999999999999</Position>
+<Axis>1.2246063538223773e-016 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>65</Uid>
+</InstancePath>
+<Position>6.7789050737047169e-015 -9.5 14.799999999999999</Position>
+<Axis>1.2246063538223773e-016 0 1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Rigid name="Rigid_66_0">
+<InstancePath>
+<Uid>65</Uid>
+</InstancePath>
+<InstancePath>
+<Uid>66</Uid>
+</InstancePath>
+</Rigid>
+<Rigid name="Rigid_69_0">
+<InstancePath>
+<Uid>66</Uid>
+</InstancePath>
+<InstancePath>
+<Uid>69</Uid>
+</InstancePath>
+</Rigid>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+</Assemblies>
+<Parts>
+<Part name="NECK_TRUTH_SKEL" uid="NECK_TRUTH_SKEL_prt" version="336">
+<PartFile name="NECK_TRUTH_SKEL.prt" type="ProEngineer Part"/>
+<MassProperties>
+<Mass>0</Mass>
+<CenterOfMass>0 0 0</CenterOfMass>
+<Inertia>0 0 0 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="neck_truth_skel_prt.step" type="STEP"/>
+<VisualProperties>
+<Ambient r="0" g="0.22499999999999998" b="0.29999999999999999" a="1"/>
+<Diffuse r="0" g="0.59999999999999998" b="0.79999999999999993" a="1"/>
+<Specular r="0.5" g="0.5" b="0.5" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.39999999999999997</Shininess>
+</VisualProperties>
+</Part>
+<Part name="SIM_HEAD_HEAD_2" uid="SIM_HEAD_HEAD_2_prt" version="5319">
+<PartFile name="SIM_HEAD_HEAD_2.prt" type="ProEngineer Part"/>
+<MassProperties>
+<Mass>1.9178695249913225</Mass>
+<CenterOfMass>0.012492365855028926 -107.10359851097159 -14.802582145980809</CenterOfMass>
+<Inertia>11921.802442228563 12787.409129055259 10368.330175673053 -35.482509008400939 0.17432139015045151 -0.29525196582062341</Inertia>
+</MassProperties>
+<GeometryFile name="sim_head_head_2_prt.step" type="STEP"/>
+</Part>
+<Part name="SIM_HEAD_NECK_2_PITCH" uid="SIM_HEAD_NECK_2_PITCH_prt" version="4499">
+<PartFile name="SIM_HEAD_NECK_2_PITCH.prt" type="ProEngineer Part"/>
+<MassProperties>
+<Mass>0.1253903781893968</Mass>
+<CenterOfMass>-0.036355144844804309 -6.6192618216329544 -6.3818807777693589</CenterOfMass>
+<Inertia>40.518061490514512 38.650241626769315 47.36315111962216 -9.3794733906722616 0.099986257475236817 0.059058798671637561</Inertia>
+</MassProperties>
+<GeometryFile name="sim_head_neck_2_pitch_prt.step" type="STEP"/>
+</Part>
+<Part name="SIM_HEAD_NECK_3_ROLL" uid="SIM_HEAD_NECK_3_ROLL_prt" version="6222">
+<PartFile name="SIM_HEAD_NECK_3_ROLL.prt" type="ProEngineer Part"/>
+<MassProperties>
+<Mass>0.1899993877889532</Mass>
+<CenterOfMass>0.082423519908561005 -45.598463224488782 1.2660800871583167</CenterOfMass>
+<Inertia>123.73579888297436 41.27687799077885 110.66755036740636 -10.314035714790887 -0.37225329416436609 -0.54134805469553138</Inertia>
+</MassProperties>
+<GeometryFile name="sim_head_neck_3_roll_prt.step" type="STEP"/>
+</Part>
+<Part name="SIM_HEAD_NECK_4_YAW" uid="SIM_HEAD_NECK_4_YAW_prt" version="1258">
+<PartFile name="SIM_HEAD_NECK_4_YAW.prt" type="ProEngineer Part"/>
+<MassProperties>
+<Mass>0.029541890153943335</Mass>
+<CenterOfMass>-0.00068015082641543307 -69.25200203753657 0.53566425745050206</CenterOfMass>
+<Inertia>2.5704577324427111 2.0715345067875139 2.5367140520662947 0.16133341384736455 0 0.00025913077676866067</Inertia>
+</MassProperties>
+<GeometryFile name="sim_head_neck_4_yaw_prt.step" type="STEP"/>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>
