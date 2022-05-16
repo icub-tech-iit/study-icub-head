@@ -2,5 +2,8 @@
 ~*
 build*
 *.slxc
+*.asv
+*.slxc
 *.autosave
 slprj*
+cache/
