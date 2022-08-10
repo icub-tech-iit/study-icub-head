@@ -30,13 +30,6 @@ EOF
 # HELPER FUNCTIONS
 ######################################################################################
 
-list_joints() {
-    echo -e "(0: shoulder_pitch 1: shoulder_roll    2: shoulder_yaw   3: elbow\n" \
-             "4: wrist_prosup   5: wrist_pitch      6: wrist_yaw      7: hand_fingers\n" \
-             "8: thumb_oppose   9: thumb_proximal   10: thumb_distal  11: index_proximal\n" \
-             "12: index_distal  13: middle_proximal 14: middle_distal 15: pinky)"
-}
-
 home() {
     # This is with the arms over the table
     echo "ctpn time $1 off 0 pos (0 0 0)" | yarp rpc /ctpservice/head/rpc
@@ -74,22 +67,25 @@ combN() {
 }
 
 seq() {
+    echo("-- pitch --")
     pitchP 1
-    sleep 2.0
+    sleep 1.0
     pitchN 1
-    sleep 2.0
+    sleep 1.0
     home 0.5
     sleep 1
+    echo("-- roll --")
     rollP 1
-    sleep 2.0
+    sleep 1.0
     rollN 1
-    sleep 2.0
+    sleep 1.0
     home 0.5
     sleep 1
+    echo("-- combined --")
     combP 1
-    sleep 2.0
+    sleep 1.0
     combN 1
-    sleep 2.0
+    sleep 1.0
     home 0.5
 }
 

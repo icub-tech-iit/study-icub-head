@@ -1,3 +1,29 @@
+
+%% Define neck Trajectory
+
+pr = 20;
+rr = 10;
+
+durations = [ 0,  1,  1,   1,   1, 0.5, 1,  1,  1,   1,   1, 0.5, 1,  1,  1,  1,    1, 0.5, 0.5];
+
+% waypoints [pitch; roll] in degrees
+wp = [ 0, pr, pr, -pr, -pr,   0, 0,  0,  0,   0,   0,   0, 0, pr, pr, -pr, -pr,   0,    0;
+              0,  0,  0,   0,   0,   0, 0, rr, rr, -rr, -rr,   0, 0, rr, rr, -rr, -rr,   0,   0];
+
+
+
+% Uncomment this line to add the joint offset to the reference trajectory
+% Useful when computing inverse dynamics
+% wp = wp + [smiData.RevoluteJoint(3).Rz.Pos; smiData.RevoluteJoint(6).Rz.Pos];
+
+% timepoints
+tp = cumsum(durations);
+%tp = 0:size(wp, 2)-1;
+vel_bounds = zeros(size(wp));
+accel_bounds = zeros(size(wp));
+
+% --------------------------------------------------------
+
 %% Model parameters
 
 % Cable pulleys
@@ -8,33 +34,7 @@ front_pulley_len = 5; %mm
 small_pulley_diam = 11; % mm
 small_pulley_len = 1.5; % mm
 
-% altezza_tra_pitch_e_roll = 9.5; % mm
-% altezza_tra_roll_e_small = 22.5; %mm
-% distanza_tra_small_orizzontale = 22; %mm
-% distanza_tra_asse_pitch_e_small_orizzontale = 17; % mm
-% distanza_tra_pitch_e_front_e_rear_orizzontale = 17.8; % mm
-
-%% Define neck Trajectory
-
-% waypoints [pitch; roll] in degrees
-wp = [ 0, 22, 22, -40, -40, 0;
-       0, 20, 20, -20, -20, 0];
-
-% Uncomment this line to add the joint offset to the reference trajectory
-% Useful when computing inverse dynamics
-% wp = wp + [smiData.RevoluteJoint(3).Rz.Pos; smiData.RevoluteJoint(6).Rz.Pos];
-
-% timepoints
-%tp = [0, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5, 0.5, 1.5];
-%tp = cumsum(tp);
-tp = 0:size(wp, 2)-1;
-vel_bounds = zeros(size(wp));
-accel_bounds = zeros(size(wp));
-
-% --------------------------------------------------------
-%% Parameters
 % Harmonic drive data
-
 harmonic_drive_ratio = 100;
 
 % Lost motion range when accounting for backlash
@@ -71,7 +71,7 @@ LUT.R = repmat(timing_pulley_driven_radius / 1000, 361, 1);
 LUT.q = (0:pi/180:2*pi)';
 
 % --------------------------------------------------------
-%% Controllers
+%% Controllers default values
 roll_pitch_pid.p = 9;
 roll_pitch_pid.i = 3;
 roll_pitch_pid.d = 0.2;
@@ -79,8 +79,8 @@ roll_pitch_pid.n = 100;
 roll_pitch_pid.u_min = -100;
 roll_pitch_pid.u_max = 100;
 
-yaw_pid.p = 10;
-yaw_pid.i = 5;
+yaw_pid.p = 9;
+yaw_pid.i = 3;
 yaw_pid.u_min = -100;
 yaw_pid.u_max = 100;
 
