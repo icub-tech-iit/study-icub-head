@@ -10,15 +10,16 @@ durations = [ 0,  1,  1,   1,   1, 0.5, 1,  1,  1,   1,   1, 0.5, 1,  1,  1,  1,
 wp = [ 0, pr, pr, -pr, -pr,   0, 0,  0,  0,   0,   0,   0, 0, pr, pr, -pr, -pr,   0,    0;
               0,  0,  0,   0,   0,   0, 0, rr, rr, -rr, -rr,   0, 0, rr, rr, -rr, -rr,   0,   0];
 
-
+wp = [ 0, 0, 20, 20, -20, -20, 0 , 0, 0,  0, 0, 0, 0;
+       0, 0,  0, 0, 0, 0, 0, 0, 10, 10, -10, -10, 0];
 
 % Uncomment this line to add the joint offset to the reference trajectory
 % Useful when computing inverse dynamics
 % wp = wp + [smiData.RevoluteJoint(3).Rz.Pos; smiData.RevoluteJoint(6).Rz.Pos];
 
 % timepoints
-tp = cumsum(durations);
-%tp = 0:size(wp, 2)-1;
+% tp = cumsum(durations);
+tp = 0:size(wp, 2)-1;
 vel_bounds = zeros(size(wp));
 accel_bounds = zeros(size(wp));
 
@@ -76,8 +77,18 @@ roll_pitch_pid.p = 9;
 roll_pitch_pid.i = 3;
 roll_pitch_pid.d = 0.2;
 roll_pitch_pid.n = 100;
-roll_pitch_pid.u_min = -100;
-roll_pitch_pid.u_max = 100;
+u_min = -100;
+u_max = 100;
+
+Cz_pitch.Kp = roll_pitch_pid.p;
+Cz_pitch.Ki = roll_pitch_pid.i;
+Cz_pitch.Kd = roll_pitch_pid.d;
+Cz_pitch.Tf = 1/roll_pitch_pid.n;
+
+Cz_roll.Kp = roll_pitch_pid.p;
+Cz_roll.Ki = roll_pitch_pid.i;
+Cz_roll.Kd = roll_pitch_pid.d;
+Cz_roll.Tf = 1/roll_pitch_pid.n;
 
 yaw_pid.p = 9;
 yaw_pid.i = 3;
