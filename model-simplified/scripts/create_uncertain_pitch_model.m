@@ -54,24 +54,24 @@ nominal_pole_index = intersect(...
 nominal_unstable_pole = mean(positive_poles_matrix(nominal_pole_index));
 
 
-j = 1;
-negative_poles_matrix = [];
-nominal_negative_poles_index = [];
-for idx = 1:length(pitch_operating_points)
-    i = 1;
-    l = zpk(ls{idx});
-    for p = l.P{1}'
-        if p <= 0.0
-            negative_poles_matrix(i, j) = p;
-            i = i + 1;
-        end
-    end
-    %nominal_negative_poles_index(j) = intersect(...
-    %find(negative_poles_matrix(j, :) ~= (min(negative_poles_matrix(j, :)))), ...
-    %find(negative_poles_matrix(j, :) ~= (max(negative_poles_matrix(j, :)))) );
-
-    j = j + 1;
-end
+% j = 1;
+% negative_poles_matrix = [];
+% nominal_negative_poles_index = [];
+% for idx = 1:length(pitch_operating_points)
+%     i = 1;
+%     l = zpk(ls{idx});
+%     for p = l.P{1}'
+%         if p <= 0.0
+%             negative_poles_matrix(i, j) = p;
+%             i = i + 1;
+%         end
+%     end
+%     %nominal_negative_poles_index(j) = intersect(...
+%     %find(negative_poles_matrix(j, :) ~= (min(negative_poles_matrix(j, :)))), ...
+%     %find(negative_poles_matrix(j, :) ~= (max(negative_poles_matrix(j, :)))) );
+% 
+%     j = j + 1;
+% end
 
 
 usp1 = -10.08;

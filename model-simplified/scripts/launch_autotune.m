@@ -3,11 +3,11 @@ close all
 
 Ts = 1e-3;          % sec
 responsetime = 0.4; % sec
-dcerror = 0.1;     % perc
-peakerror = 1.0;   % fract relative
+dcerror = 0.1;      % perc
+peakerror = 1.0;    % fract relative
 peak = 0.1;         % abs deg
 tSettle = 0.2;      % sec
-maxOvershoot = 10;
+maxOvershoot = 10;  % perc
 
 %% Run autotune for pitch
 
@@ -57,3 +57,4 @@ viewGoal([Rtrack, Rreject, Rov], T_roll)
 
 % get discretized controller
 Cz_roll = c2d(C_roll, Ts, 'tustin');
+
