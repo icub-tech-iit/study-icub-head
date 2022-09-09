@@ -57,4 +57,3 @@ viewGoal([Rtrack, Rreject, Rov], T_roll)
 
 % get discretized controller
 Cz_roll = c2d(C_roll, Ts, 'tustin');
-
