@@ -100,19 +100,8 @@ yaw_pid.u_max = 100;
 % Base rotation: corresponds to a rotated torso
 base_rotation_seq = [-90, 0, 0]; % XYX Rotation
 
-
-robot_name = 'icub';
-
-if(strcmp(robot_name, 'icub'))
-    % iCub
-    head_mounting_rotation_seq = [0 90 0]; % XYX Rotation deg
-    head_mounting_translation = [21.05 -7.7 0]; % Cartesian mm
-else
-    % ergoCub
-    head_mounting_rotation_seq = [180 90 0]; % XYX Rotation deg
-    head_mounting_translation = [70 165.5 -69]; % Cartesian mm
-end
-
+head_mounting_rotation_seq = [0 90 0]; % XYX Rotation deg
+head_mounting_translation = [21.05 -7.7 0]; % Cartesian mm
 
 %% Impairments
 

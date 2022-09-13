@@ -6,14 +6,14 @@ Ts = 1e-3; % Sampling time
 driving_pulley_inertia = 0.021e-6; %kgm^2
 driven_pulley_inertia = 0.0913e-6; %kgm^2
 harmonic_drive_inertia = 0.3e-6; %kgm^2
-head_inertia = 0.21;
+head_inertia = 0.21;  % Kgcm2
 motor_b = 1.2407e-4; % mNm/rpm
 motor_inertia = 5.7e-7; % gcm^2
-mech_filter_k = 200; 
-mech_filter_b = 20;
+mech_filter_k = 200;    % Nm / rad
+mech_filter_b = 20; % Nm / rad/s
 timing_belt_ratio = 1.68;
 hd_ratio = 100;
-Res = 1.9;
+Res = 1.9;   % Ohm
 K_tv = 13.4e-3;
 
 %% Create uncertain system for Pitch model

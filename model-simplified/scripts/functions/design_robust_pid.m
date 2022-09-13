@@ -1,6 +1,5 @@
-%% Design controller
 function [C, T, Sc] = design_robust_pid(usys, OutputName, Ts,  SoftGoals, HardGoals)
-    
+  
     %% define the tunable controller
     C = tunablePID('C', 'PID');
     C.Kp.Minimum = 0;    C.Kp.Maximum = inf;

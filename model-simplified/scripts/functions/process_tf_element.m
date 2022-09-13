@@ -1,8 +1,7 @@
 function tf_poly = process_tf_element(p, threshold, par_prefix, uncertain_range)
-% checks if linear system parameter is the same in the array created by the
-% models; evaluation occurs according to threshold: 
-% if true add it as a polynomial root, otherwise
-% create an uncertain parameter and add it as a polynomial root:
+% PROCESS_TF_ELEMENT: checks if linear system parameter is the same in the array created by the
+% models; evaluation occurs according to threshold: if true add it as a polynomial root, 
+% otherwise create an uncertain parameter and add it as a polynomial root.
 % If the parameter is a static gain add it as a multiplicative factor
     j = 1;
     s = tf('s'); 
