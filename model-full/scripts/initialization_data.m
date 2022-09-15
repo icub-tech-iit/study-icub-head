@@ -1,15 +1,6 @@
 
 %% Define neck Trajectory
-
-pr = 20;
-rr = 10;
-
-durations = [ 0,  1,  1,   1,   1, 0.5, 1,  1,  1,   1,   1, 0.5, 1,  1,  1,  1,    1, 0.5, 0.5];
-
 % waypoints [pitch; roll] in degrees
-wp = [ 0, pr, pr, -pr, -pr,   0, 0,  0,  0,   0,   0,   0, 0, pr, pr, -pr, -pr,   0,    0;
-              0,  0,  0,   0,   0,   0, 0, rr, rr, -rr, -rr,   0, 0, rr, rr, -rr, -rr,   0,   0];
-
 wp = [ 0, 0, 20, 20, -20, -20, 0 , 0, 0,  0, 0, 0, 0;
        0, 0,  0, 0, 0, 0, 0, 0, 10, 10, -10, -10, 0];
 
@@ -18,6 +9,7 @@ wp = [ 0, 0, 20, 20, -20, -20, 0 , 0, 0,  0, 0, 0, 0;
 % wp = wp + [smiData.RevoluteJoint(3).Rz.Pos; smiData.RevoluteJoint(6).Rz.Pos];
 
 % timepoints
+% durations = [ 0,  1,  1,   1,   1, 0.5, 1,  1,  1,   1,   1, 0.5, 1,  1,  1,  1,    1, 0.5, 0.5];
 % tp = cumsum(durations);
 tp = 0:size(wp, 2)-1;
 vel_bounds = zeros(size(wp));

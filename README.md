@@ -4,13 +4,13 @@ Study iCub Head – Simulations
 
 This branch contains the material used to model the iCub head in MATLAB Simscape, and design the pitch and roll PID controllers.
 It is split into two projects:
-- `model-full` contains the full-fledged Simscape Multibody model exported directly from Creo
+- `model-full` contains the full Simscape Multibody model exported directly from Creo
      - it is used to evaluate the actuators performance and the impact of non linear behaviour on the reference tracking
 - `model-simplified` contains a Simscape Multibody model with just the roll and pitch joints, created as lumped components
     - it is used for creating the linearized models upon which the PIDs will be tuned
 
 ## Requirements
- - MATLAB  >= R2021b
+ - MATLAB >= R2021b
  - Simulink
  - Control System Toolbox
  - Robust Control Toolbox
@@ -25,6 +25,7 @@ It is split into two projects:
 ### Running `model-full`
 Double click on the MATLAB project file `neck-study-full.prj`. Upon opening, the Simulink model `neck_head_control.slx` will be opened and the controllers will be imported.
 To run the simulation simply click on `Run`.
+**Note:** By default, the project loads the the autotuned PID parameters located in the file `data/pitch_roll_controllers.mat`. Legacy PID parameters are instead located in the script `scripts/initialization_data.m`.
 ### Running `model-simplified`
 
 Double click on the MATLAB project file `neck-study-simplified.prj`. This project contains scripts for running the robust tuning procedure using uncertain models.
