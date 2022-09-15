@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Info Type="StartUp" Visible="0" Icon="" File="data/uncertain_transfer_functions.mat" Name="uncertain_transfer_functions">
+<Info Type="StartUp" Visible="0" Icon="" File="data/model_transfer_functions.mat" Name="model_transfer_functions">
     <Extension Value="ee0839cf-03ba-4c3b-8295-7160443a0f75" Name="StartUpPrev"/>
 </Info>

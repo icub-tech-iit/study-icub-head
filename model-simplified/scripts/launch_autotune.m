@@ -3,16 +3,18 @@ close all
 
 Ts = 1e-3;          % sec
 responsetime = 0.4; % sec
-dcerror = 0.1;     % perc
-peakerror = 1.0;   % fract relative
+dcerror = 0.1;      % perc
+peakerror = 1.0;    % fract relative
 peak = 0.1;         % abs deg
 tSettle = 0.2;      % sec
+maxOvershoot = 10;  % perc
 
 %% Run autotune for pitch
 
 Rtrack = TuningGoal.Tracking('r', 'pitch', responsetime, dcerror, peakerror);
 Rreject = TuningGoal.StepRejection('tau', 'pitch', peak, tSettle);
-Rov = TuningGoal.Overshoot('r', 'pitch', 10);
+Rov = TuningGoal.Overshoot('r', 'pitch', maxOvershoot);
+
 [C_pitch, T_pitch, Sc_pitch] = design_robust_pid(tfu_pitch, 'pitch',...
                                                  Ts, Rtrack, [Rov, Rreject]);
 
@@ -36,7 +38,7 @@ Cz_pitch = c2d(C_pitch, Ts, 'tustin');
 
 Rtrack = TuningGoal.Tracking('r', 'roll', responsetime, dcerror, peakerror);
 Rreject = TuningGoal.StepRejection('tau', 'roll', peak, tSettle);
-Rov = TuningGoal.Overshoot('r', 'roll', 10);
+Rov = TuningGoal.Overshoot('r', 'roll', maxOvershoot);
 [C_roll, T_roll, Sc_roll] = design_robust_pid(tfu_roll, 'roll',...
                                               Ts, Rtrack, [Rov, Rreject]);
 
