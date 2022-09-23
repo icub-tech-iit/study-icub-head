@@ -75,12 +75,12 @@ $$
 where 
 
 - J1 = driven pulley inertia = $ 0.0913 Kg\cdot mm^2 = 9.13 \times 10^{-8} Kg\cdot m^2 $
--  J2 = head inertia = $$ \frac{2}{5} m \cdot R^2 + m \cdot d^2 = 0.021 Kg \cdot m^2 $$
+-  J2 = head inertia = $$ \frac{2}{5} m \cdot R^2 + m \cdot d^2 = 0.022 Kg \cdot m^2 $$
 
    where
    - *R* is the head radius when modelled like a homogenous sphere, which center is the yaw joint origin = 120mm
    - *d* is the distance between the pitch joint origin and the yaw joint origin = 78.65mm
-   - *m* is the head mass = 1.575Kg   
+   - *m* is the head mass = 1.86Kg   
 
 -  $ \eta $ = gearbox ratio = 100
 -  *b* is the viscous friction, which damps the system
@@ -89,16 +89,14 @@ where
 The head inertia is computed as
 
 By choosing 
-*b* = 13.2 Nm/(rad/s) / $\eta^2$
-*k* = 132 Nm/(rad) / $\eta^2$
+*b* = 20 Nm/(rad/s) / $\eta^2$
+*k* = 200 Nm/(rad) / $\eta^2$
 
 we get the following Bode diagram highlighted in orange. Without the downscaling effect of the squared reduction ratio, the bandwidth (in blue) would have been unnecessarily large and would have amplified small unrealistic oscillations.
 
-![](assets/bode_1ststage.png)
-
 The numerical transfer function is:
 $$
-\frac{\theta_o(s)}{\theta_i(s)} = \frac{201.25 (s+9.524)}{(s+191.2) (s+10.02)}
+\frac{\theta_o(s)}{\theta_i(s)} = \frac{864.34 (s+10)}{(s+854.2) (s+10.12)}
 $$
 **Second stage filter**
 The second stage filter does not involve the reduction ratio, therefore the choice of *b* and *k* stems from the simple transfer function:
@@ -109,19 +107,17 @@ $$
 
 where J is the head inertia, with the same value as the first stage.
 By choosing 
-*b* = 13.2 Nm/(rad/s) 
-*k* = 132 Nm/(rad)
+*b* = 20 Nm/(rad/s) 
+*k* = 200 Nm/(rad)
 we get the following Bode diagram, which matches the detuned first stage:
-
-![](assets/bode_2ndstage.png)
 
 The numerical transfer function is:
 
 $$
-\frac{\theta_o(s)}{\theta_i(s)} = \frac{210 (s+9.524)}{(s+200) (s+10)}
+\frac{\theta_o(s)}{\theta_i(s)} = \frac{899.85 (s+10)}{(s+899.7) (s+10.11)}
 $$
 
-
+![](assets/mech_filters.png)
 #### Timing belt modeling
 The timing belt reduction ratio is
 $$
@@ -200,17 +196,17 @@ J_2 \ddot{\theta_2} + kR_2^2\theta_2 - k R_1 R_2 \theta_1  + bR_2^2\dot{\theta_2
 \end{cases}
 $$
 
-The chain dynamics can be used to replace the first stage filter. As a simplifying assumption we can say that $R_1 = R_2 = R$, finding that we can achieve the same bandwidth with the relationship
+As a simplifying assumption we can say that $R_1 = R_2 = R = 6.79mm$, finding that we can achieve the same bandwidth with the relationship
 $$
-k_{chain} = \frac{k_{filter}}{R^2} \qquad
-b_{chain} = \frac{b_{filter}}{R^2}
+k_{chain} = \frac{k_{filter}}{R^2 \eta^2} \qquad
+b_{chain} = \frac{b_{filter}}{R^2 \eta^2}
 $$
 In the model we use $R_2$ as radius, finding the values:
 $$
-k_{chain} =286.3 N/m\qquad
-b_{chain} = 28.63 N/(m/s)
+k_{chain} = 433,8 N/m\qquad
+b_{chain} = 43.38 N/(m/s)
 $$
-
+that can be used to replace the first stage filter
 #### Pulley ellipticity
 Manufacturing defects on the pulley can cause a flattening effect on the pulley diameters. This effect can be considered an impairment that causes velocity oscillations in the output of the timing belt transmission. These oscillations are caused by a variation of the transmission ratio. 
 Let us consider the ellipticity on the driven pulley, modelled in such a way:
