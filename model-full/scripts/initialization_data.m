@@ -49,7 +49,7 @@ timing_pulley_driving_radius = 11.64 / 2; % mm
 timing_pulley_driven_radius = 13.58 / 2; % mm
 
 timing_pulley_stiffness = torsional_filter_spring_stiffness / (timing_pulley_driven_radius / 1000)^2 / harmonic_drive_ratio^2;
-timing_pulley_damping = torsional_filter_viscous_friction/ (timing_pulley_driven_radius / 1000)^2 / harmonic_drive_ratio^2;
+timing_pulley_damping = torsional_filter_viscous_friction / (timing_pulley_driven_radius / 1000)^2 / harmonic_drive_ratio^2;
 
 % --------------------------------------------------------
 % Motors parameters
