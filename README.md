@@ -13,11 +13,11 @@ It is split into two projects:
     - it is used for creating the linearized models upon which the PIDs will be tuned.
 
 ## Requirements
- - MATLAB >= R2021b
+ - MATLAB >= R2022b
  - Simulink
  - Control System Toolbox
  - Robust Control Toolbox
- - Simscape
+ - Simscap
  - Simscape Driveline
  - Simscape Electrical
  - Simscape Multibody
