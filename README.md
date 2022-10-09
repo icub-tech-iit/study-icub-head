@@ -4,7 +4,7 @@ Study iCub Head
 ## 🌿 Repository structure
 This repository is organized based upon the following multiple parallel (i.e. orphan in Git jargon) branches:
 - 🔘 [`master`](../../tree/master) contains general information.
-- 🔘 [`sim`](../../tree/sim) contains simulations.
+- 🔘 [`sim`](../../tree/sim) contains Simulink models for simulations.
 - 🔘 [`code`](../../tree/code) contains code and configuration files.
 - 🔘 [`mech`](../../tree/mech) contains mechanical drawings.
 
