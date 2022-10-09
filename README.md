@@ -26,18 +26,15 @@ It is split into two projects:
 ## Usage
 
 ### Running `model-full`
-Double click on the MATLAB project file `neck-study-full.prj`. Upon opening, the Simulink model `neck_head_control.slx` will be opened and the controllers will be imported.
-To run the simulation simply click on `Run`.
-**Note:** By default, the project loads the the autotuned PID parameters located in the file `data/pitch_roll_controllers.mat`. Legacy PID parameters are instead located in the script `scripts/initialization_data.m`.
+- Double click on the MATLAB project file `neck-study-full.prj`. Upon opening, the Simulink model `neck_head_control.slx` will be brought up and the controllers will be imported.
+- To run the simulation simply click on `Run`.
+- 👉🏻 By default, the project loads the autotuned PID parameters located in the file `data/pitch_roll_controllers.mat`. Legacy PID parameters are instead located in the script `scripts/initialization_data.m`.
 ### Running `model-simplified`
-Double click on the MATLAB project file `neck-study-simplified.prj`. This project contains scripts for running the robust tuning procedure using uncertain models.
-
-To create the uncertain roll and pitch transfer function, run the script `create_uncertain_models.m`.
-
-To run the robust tuning, run the script `launch_autotune.m`. This script assumes that the transfer functions are present in the workspace. If you do not want to run the creation script, you can load the workspace file `model_transfer_functions.mat` by double clicking it or with `load('model_transfer_functions.mat)`.
-
-You can save the controllers with the command
-```matlab
-save('your-desired-filename.mat', 'Cz_pitch', 'Cz_roll')
-```
-for future use with the full Simscape model.
+- Double click on the MATLAB project file `neck-study-simplified.prj`. This project contains scripts for running the robust tuning procedure using uncertain models.
+- To create the uncertain roll and pitch transfer functions, run the script `create_uncertain_models.m`.
+- To run the robust tuning, launch the script `launch_autotune.m`. This script assumes that the transfer functions are available in the workspace. If you do not want to run the creation script, you can load the workspace file `model_transfer_functions.mat`.
+- For a later use with the full Simscape model, you can save the controllers with the command
+  ```matlab
+  save('your-desired-filename.mat', 'Cz_pitch', 'Cz_roll')
+  ```
+  
