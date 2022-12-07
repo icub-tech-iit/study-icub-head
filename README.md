@@ -17,7 +17,7 @@ It is split into two projects:
  - Simulink
  - Control System Toolbox
  - Robust Control Toolbox
- - Simscap
+ - Simscape
  - Simscape Driveline
  - Simscape Electrical
  - Simscape Multibody
