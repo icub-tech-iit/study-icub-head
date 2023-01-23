@@ -25,6 +25,10 @@ It is split into two projects:
 
 ## Usage
 
+## Helper script
+The repository provides the Matlab Live script `launch.mlx` to run the two projects sequentially, with integrated documentation.
+Alternatively, the projects can be launched separately.
+
 ### Running `model-full`
 - Double click on the MATLAB project file `neck-study-full.prj`. Upon opening, the Simulink model `neck_head_control.slx` will be brought up and the controllers will be imported.
 - To run the simulation simply click on `Run`.
