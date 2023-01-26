@@ -18,7 +18,7 @@ function [C, T, Sc] = design_robust_pid(usys, OutputName, Ts,  SoftGoals, HardGo
     T = connect(usys, C, Sum,'r', OutputName, 'tau');
     
     %% Tune system
-    tuneopts = systuneOptions('RandomStart', 5, 'UseParallel', true);
+    tuneopts = systuneOptions('RandomStart', 5, 'UseParallel', false);
     
     Gcl = systune(T, SoftGoals, HardGoals, tuneopts);
     
