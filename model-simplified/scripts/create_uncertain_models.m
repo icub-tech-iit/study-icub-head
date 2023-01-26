@@ -20,7 +20,7 @@ K_tv = 13.4e-3;
 
 pitch_operating_points = [-40, 0, 22]; % degrees
 
-opt = findopOptions('DisplayReport','iter');
+opt = findopOptions('DisplayReport','off');
 
 ls_pitch = cell(1,length(pitch_operating_points));
 op_points_pitch = cell(1,length(pitch_operating_points));
@@ -34,7 +34,7 @@ tfu_pitch = build_uncertain_tf(ls_pitch);
 
 roll_operating_points = [-20, 0, 20]; % degrees
 
-opt = findopOptions('DisplayReport','iter');
+opt = findopOptions('DisplayReport','off');
 
 ls_roll = cell(1,length(roll_operating_points));
 op_points_roll = cell(1,length(roll_operating_points));
